@@ -1,5 +1,6 @@
-// Gran cantidad de este código fue generado por chatGPT
-// Yo lo adapté para simplificarlo para la clase
+// Tu Nombre
+// Programa cliente que hace pruebas a la clase List implementada
+// con arreglo dinámico
 
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
@@ -8,31 +9,32 @@
 #include <stdexcept>
 #include <iostream>
 #include <string>
-#include "List.h"
+#include "List.hpp"
 
 using namespace std;
 
 
-TEST_CASE("Let's grow some lists and compare them") {
+
+
+TEST_CASE("Testing the inverse function...") {
     List L;
-    L.append(9);
-    
-
-    L.append(3); L.append(5); L.append(4);
-    CHECK(L.toString() == "9 3 5 4");
-
-    L.insert(42,0);
-    List M;
-    M = L;
-    CHECK(M == L);
+    // populate the list
+    L.append(42); L.append(9); L.append(3); L.append(5); L.append(4);
     CHECK(L.toString() == "42 9 3 5 4");
 
+    // invert and check
     L.inverse();
     CHECK(L.toString() == "4 5 3 9 42");
-    CHECK_FALSE(L == M);
-    L.inverse();
-    CHECK(L == M);
-    CHECK(L.toString() == "42 9 3 5 4");
 
+
+    // check that inverte  works with an empty list!
+    List M;
+    M.inverse();
+    CHECK(M.toString() == "");
+
+}
+
+TEST_CASE("Testing the remove odd function...") {
+    // You write the assertions!
 
 }
